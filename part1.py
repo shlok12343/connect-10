@@ -1,6 +1,12 @@
 import numpy as np
 
+board = np.zeros(shape = (10,10), dtype = int)
 
+print(board)
+
+row = [9]*10
+
+win = False
 
 
 def row_input():
@@ -59,73 +65,48 @@ def row_input3():
 
 
 def win_checker_verticle():
-  global win
   for j in range(0,10):
     for i in range(0,7):
       if board[i][j]  == 1 and board[i+1][j] == 1 and board[i+2][j] == 1 and board[i+3][j] == 1:
         print("win")
-        win = True
-        return win
       elif board[i][j] == 2 and board[i+1][j] == 2 and board[i+2][j] == 2 and board[i+3][j] == 2:
         print("win")
-        win = True
-        return win
       elif board[i][j] == 3 and board[i+1][j] == 3 and board[i+2][j] == 3 and board[i+3][j] == 3:
         print("win")
-        win = True
-        return win
 
 def win_checker_horizontal():
-  global win
+  
   for j in range(0,7):
     for i in range(0,10):
       if board[i][j]  == 1 and board[i][j+1] == 1 and board[i][j+2] == 1 and board[i][j+3] == 1:
         print("win")
-        win = True
-        return win
       elif board[i][j] == 2 and board[i][j+1] == 2 and board[i][j+2] == 2 and board[i][j+3] == 2:
         print("win")
-        win = True
-        return win
       elif board[i][j] == 3 and board[i][j+1] == 3 and board[i][j+2] == 3 and board[i][j+3] == 3:
         print("win")
-        win = True
-        return win
 
 def win_checker_counter_diagnal():
-  global win
+  
   for j in range(0,7):
     for i in range(0,7):
       if board[i][j]  == 1 and board[i+1][j+1] == 1 and board[i+2][j+2] == 1 and board[i+3][j+3] == 1:
         print("win")
-        win = True
-        return win
-         
       elif board[i][j] == 2 and board[i+1][j+1] == 2 and board[i+1][j+2] == 2 and board[i+1][j+3] == 2:
         print("win")
-        win = True
-        return win
       elif board[i][j] == 3 and board[i+1][j+1] == 3 and board[i+2][j+2] == 3 and board[i+3][j+3] == 3:
         print("win")
-        win = True
-        return win
 
 def win_checker_diagnal():
-  global win
+  
   for j in range(0,7):
     for i in reversed(range(3,10)):
       if board[i][j]  == 1 and board[i-1][j+1] == 1 and board[i-2][j+2] == 1 and board[i-3][j+3] == 1:
         print("win")
-        win = True
-        return win
+        
       elif board[i][j] == 2 and board[i-1][j+1] == 2 and board[i-2][j+2] == 2 and board[i-3][j+3] == 2:
         print("win")
-        win = True
-        return win
       elif board[i][j] == 3 and board[i-1][j+1] == 3 and board[i-2][j+2] == 3 and board[i-3][j+3] == 3:
         print("win")
-        win = True
-        return win
     
 
 
@@ -137,44 +118,26 @@ def win_checker_diagnal():
 
 
 
-play = "yes"
 
-while play == "yes":
- 
- board = np.zeros(shape = (10,10), dtype = int)
- print(board)
- row = [9]*10
- win = False
- 
+n = 0
+while n < 2000:
+ n = n + 1
+
+
+ row_input()
+ win_checker_horizontal()
+ win_checker_verticle()
+ win_checker_diagnal()
+ win_checker_counter_diagnal()
    
- 
+ row_input2()
+ win_checker_horizontal()
+ win_checker_verticle()
+ win_checker_diagnal()
+ win_checker_counter_diagnal()
 
- while win == False:
-   row_input()
-   win_checker_horizontal()
-   win_checker_verticle()
-   win_checker_diagnal()
-   win_checker_counter_diagnal()
-   
-   row_input2()
-   win_checker_horizontal()
-   win_checker_verticle()
-   win_checker_diagnal()
-   win_checker_counter_diagnal()
-   
-   row_input3()
-   win_checker_horizontal()
-   win_checker_verticle()
-   win_checker_diagnal()
-   win_checker_counter_diagnal()
-
-
- play = input("would you like to play again: Ans - (yes or no)")
-
-
-
-   
- 
-
-
-
+ row_input3()
+ win_checker_horizontal()
+ win_checker_verticle()
+ win_checker_diagnal()
+ win_checker_counter_diagnal()
