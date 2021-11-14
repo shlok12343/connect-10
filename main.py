@@ -14,6 +14,7 @@ def row_input():
 
   
   board[row[player_input]][player_input] = 1
+  print(" "*10000)
   print(board)
 
   if row[player_input] == -1:
@@ -32,6 +33,7 @@ def row_input2():
 
   
   board[row[player_input2]][player_input2] = 2
+  print(" "*10000)
   print(board)
 
   if row[player_input2] == -1:
@@ -50,6 +52,7 @@ def row_input3():
 
   
   board[row[player_input3]][player_input3] = 3
+  print(" "*10000)
   print(board)
 
   if row[player_input3] == -1:
@@ -142,6 +145,7 @@ play = "yes"
 while play == "yes":
  
  board = np.zeros(shape = (10,10), dtype = int)
+ print(" "*10000)
  print(board)
  row = [9]*10
  win = False
